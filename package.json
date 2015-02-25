@@ -1,0 +1,24 @@
+{
+  "name": "hilight",
+  "version": "0.0.1",
+  "description": "javascript syntax highlighting, build for performance",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clide/hilight"
+  },
+  "keywords": [
+    "syntax",
+    "highlight",
+    "clide"
+  ],
+  "author": "Bernhard Bücherl <bernhard.buecherl@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clide/hilight/issues"
+  },
+  "homepage": "https://github.com/clide/hilight"
+}
