@@ -1,4 +1,4 @@
-var hilight = require("hilight");
+var hilight = require("../index");
 
 var clikecommentmulti = {
     type: "comment",
