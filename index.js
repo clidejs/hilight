@@ -3,16 +3,32 @@
  * language grammar heavily inspired by http://prismjs.com
  */
 var hilight = module.exports = {
+    /**
+     * Registered languages are stored here
+     */
     languages: {},
 
+    /**
+     * Function to create a new syntax token
+     */
     Token: function(type, content, multiline) {
         return [type, content, multiline];
     },
 
+    // Type index inside a token
     TYPE: 0,
+    // Content index inside a token
     CONTENT: 1,
+    // Multiline flag index inside a token
     MULTILINE: 2,
 
+    /**
+     * Function to register a language
+     *
+     * @param {String} name language name
+     * @param {Array} fileext list of file-extensions associated with this language
+     * @param {Array} rules list of high-level rules of this language
+     */
     registerLanguage: function(name, fileext, rules) {
         if(!rules) {
             rules = fileext;
@@ -26,7 +42,17 @@ var hilight = module.exports = {
         };
     },
 
-    // TODO performance improvment (O(n^3) is way to much)
+    /**
+     * Function to generate tokens from a code-piece
+     *
+     * TODO performance improvment (O(n^3) is way to much)
+     *
+     * @param {String} language language name
+     * @param {String} str code-piece to tokenize
+     * @param {Array} prev token-array of previouse code-piece, or null
+     * @param {Array} tokens token-array to save tokens to
+     * @returns Boolean
+     */
     tokenize: function(language, str, prev, tokens) {
         var lang = hilight.languages[language];
         if(tokens) {
@@ -139,6 +165,14 @@ var hilight = module.exports = {
         return false;
     },
 
+    /**
+     * Function to render a string from tokens
+     *
+     * @param {Array} tokens tokens-array from hilight.tokenize()
+     * @param {Object} syntax syntax object
+     * @param {Function} render rendering function
+     * @returns String
+     */
     highlight: function(tokens, syntax, render) {
         var out = "";
 

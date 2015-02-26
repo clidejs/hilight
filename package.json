@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/clide/hilight"
+    "url": "https://github.com/clidejs/hilight"
   },
   "keywords": [
     "syntax",
@@ -18,7 +18,7 @@
   "author": "Bernhard Bücherl <bernhard.buecherl@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/clide/hilight/issues"
+    "url": "https://github.com/clidejs/hilight/issues"
   },
-  "homepage": "https://github.com/clide/hilight"
+  "homepage": "https://github.com/clidejs/hilight"
 }
