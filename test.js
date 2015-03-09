@@ -46,7 +46,8 @@ function render(color, str) {
 // single line test
 var tokens = [];
 
-hilight.tokenize("javascript", "function() { var x = 150; return Math.round(x/7); }", null, tokens);
+hilight.tokenize("javascript",
+        "function() { var x = 150; return Math.round(x/7); }", null, tokens);
 
 console.log(hilight.highlight(tokens, syntax, render));
 
@@ -67,6 +68,7 @@ var cache = [];
 
 for(var i = 0; i < code.length; ++i) {
     cache[i] = [];
-    hilight.tokenize("javascript", code[i], i !== 0 ? cache[i - 1] : null, cache[i]);
+    hilight.tokenize("javascript", code[i], i !== 0 ? cache[i - 1] : null,
+            cache[i]);
     console.log(hilight.highlight(cache[i], syntax, render));
 }

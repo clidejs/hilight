@@ -26,7 +26,7 @@ var hilight = module.exports = {
      * Function to register a language
      *
      * @param {String} name language name
-     * @param {Array} fileext list of file-extensions associated with this language
+     * @param {Array} fileext list of assosiated file-extensions
      * @param {Array} rules list of high-level rules of this language
      */
     registerLanguage: function(name, fileext, rules) {
@@ -69,7 +69,8 @@ var hilight = module.exports = {
         } else if(str.length === 0) {
             var last = prev ? prev[prev.length - 1] : null;
             if(last && isArray(last) && last[hilight.MULTILINE]) {
-                tokens.push(hilight.Token(last[hilight.TYPE], "", last[hilight.MULTILINE]));
+                tokens.push(hilight.Token(last[hilight.TYPE], "",
+                        last[hilight.MULTILINE]));
             } else {
                 tokens.push("");
             }
@@ -96,7 +97,8 @@ var hilight = module.exports = {
                             if(text.indexOf(pattern.is[j]) === i) {
                                 if(ind !== i)
                                     tokens.push(text.substr(ind, i - ind));
-                                tokens.push(hilight.Token(pattern.type, pattern.is[j], false));
+                                tokens.push(hilight.Token(pattern.type,
+                                        pattern.is[j], false));
                                 i = i + pattern.is[j].length - 1;
                                 ind = i + 1;
                                 found = true;
@@ -109,7 +111,8 @@ var hilight = module.exports = {
                         if(match && match.index === i) {
                             if(ind !== i)
                                 tokens.push(text.substr(ind, i - ind));
-                            tokens.push(hilight.Token(pattern.type, match[0], false));
+                            tokens.push(hilight.Token(pattern.type, match[0],
+                                    false));
                             i = i + match[0].length - 1;
                             ind = i + 1;
                             found = true;
@@ -118,7 +121,8 @@ var hilight = module.exports = {
                         for(var j = 0; j < pattern.end.length; ++j) {
                             if(text.indexOf(pattern.end[j]) === i) {
                                 i = i + pattern.end[j].length - 1;
-                                tokens.push(hilight.Token(pattern.type, text.substr(ind, i - ind + 1), false));
+                                tokens.push(hilight.Token(pattern.type,
+                                        text.substr(ind, i - ind + 1), false));
                                 ind = i + 1;
                                 found = true;
                                 break;
@@ -134,7 +138,8 @@ var hilight = module.exports = {
                                     tokens.push(text.substr(ind, i - ind));
 
                                 if(!pattern.end) {
-                                    tokens.push(hilight.Token(pattern.type, text.substr(i), false));
+                                    tokens.push(hilight.Token(pattern.type,
+                                            text.substr(i), false));
                                     i = text.length;
                                     ind = i;
                                 } else {
@@ -154,7 +159,8 @@ var hilight = module.exports = {
 
             if(ind < text.length) {
                 if(inMultiline) {
-                    tokens.push(hilight.Token(inMultiline, text.substr(ind), true));
+                    tokens.push(hilight.Token(inMultiline, text.substr(ind),
+                            true));
                 } else {
                     tokens.push(text.substr(ind));
                 }
